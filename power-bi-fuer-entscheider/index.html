@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Power BI für Entscheider | Oksana Huber</title>
+<meta name="description" content="Power BI für Entscheider: Daten verstehen, Entscheidungen treffen – eine öffentlich dokumentierte Lernreise zur PL-300-Zertifizierung von Oksana Huber." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ---------------------------------------------------------------
+     Design system – Oksana Huber (übernommen 1:1 aus der Hauptseite,
+     src/styles.css im Lovable-Projekt "Oksana's Welcome Page").
+     Diese Seite ist bewusst als eigenständiges HTML/CSS gebaut, damit sie
+     unabhängig vom Tool (GitHub/IONOS, Wix-Einbettung o.ä.) gehostet und
+     von Oksana selbst erweitert werden kann.
+  --------------------------------------------------------------- */
+  :root {
+    --radius: 0.5rem;
+    --ink: #222f30;
+    --deep-petrol: #203b36;
+    --forest-petrol: #31554e;
+    --graphite: #4d5757;
+    --sage: #c9cbbe;
+    --warm-cream: #f3ebdd;
+    --bone-white: #f7f7f5;
+    --warm-white: #fffdf8;
+    --bronze: #b58a4a;
+    --cognac: #4a3527;
+
+    --background: var(--warm-white);
+    --foreground: #292a28;
+    --primary: var(--forest-petrol);
+    --stage-line: color-mix(in oklab, var(--bone-white) 22%, transparent);
+    --stage-muted: color-mix(in oklab, var(--sage) 88%, white);
+    --ch-line: color-mix(in oklab, var(--ink) 18%, transparent);
+    --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: "Roboto Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 { text-wrap: balance; letter-spacing: -0.01em; font-weight: 400; margin: 0; }
+  p { text-wrap: pretty; margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  :focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    z-index: 100;
+    background: var(--warm-white);
+    color: var(--ink);
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+  }
+  .skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+  }
+
+  .editorial-shell {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 4rem);
+  }
+
+  .section-y { padding-block: clamp(3.5rem, 8vw, 7rem); }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--primary);
+  }
+
+  /* -------------------- Header -------------------- */
+  .site-header {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 40;
+    background: color-mix(in oklab, var(--ink) 94%, transparent);
+    color: var(--bone-white);
+  }
+
+  .header-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    min-height: 5rem;
+    border-bottom: 1px solid var(--stage-line);
+    gap: 1rem;
+  }
+
+  .header-row a.wordmark {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .desktop-nav-list {
+    display: none;
+    align-items: center;
+    gap: 0.5rem;
+    justify-self: center;
+    color: var(--stage-muted);
+  }
+
+  .desktop-nav-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding-inline: 0.9rem;
+    border: 1px solid var(--stage-line);
+    border-radius: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: inherit;
+    transition: border-color 250ms ease, background-color 250ms ease, color 250ms ease;
+  }
+
+  .desktop-nav-link:hover {
+    border-color: color-mix(in oklab, var(--bronze) 72%, transparent);
+    color: var(--bone-white);
+  }
+
+  .desktop-nav-link.is-active {
+    border-color: var(--bronze);
+    background: var(--bronze);
+    color: var(--ink);
+  }
+
+  @media (min-width: 1024px) {
+    .desktop-nav-list { display: flex; }
+  }
+
+  .header-cta {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding-inline: 1rem;
+    border: 1px solid var(--stage-line);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--bone-white);
+    font-size: 0.8125rem;
+    transition: background-color 250ms ease;
+    white-space: nowrap;
+  }
+  .header-cta:hover { background: color-mix(in oklab, var(--bone-white) 10%, transparent); }
+
+  /* -------------------- Hero (dunkel) -------------------- */
+  .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    background-color: var(--ink);
+    color: var(--bone-white);
+    padding-top: clamp(9rem, 16vw, 12rem);
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(48% 48% at 82% 12%, color-mix(in oklab, var(--forest-petrol) 85%, white) 0%, transparent 70%),
+      radial-gradient(42% 42% at 8% 88%, color-mix(in oklab, var(--cognac) 70%, transparent) 0%, transparent 72%),
+      radial-gradient(30% 30% at 60% 70%, color-mix(in oklab, var(--bronze) 35%, transparent) 0%, transparent 75%);
+    filter: blur(60px);
+    opacity: 0.9;
+  }
+
+  .hero > .editorial-shell { position: relative; z-index: 1; }
+
+  .hero-eyebrow { color: color-mix(in oklab, var(--sage) 92%, white); }
+
+  .hero-title {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(2.75rem, 6.2vw, 5.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-sub {
+    margin-top: 1.75rem;
+    max-width: 38rem;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: color-mix(in oklab, var(--bone-white) 82%, transparent);
+  }
+
+  .hero-actions {
+    margin-top: 2.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+  }
+
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding-inline: 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    transition: background-color 250ms ease, color 250ms ease, transform 250ms ease, border-color 250ms ease;
+  }
+
+  .btn-primary {
+    background: var(--warm-cream);
+    color: var(--ink);
+    border: 1px solid color-mix(in oklab, var(--warm-cream) 70%, transparent);
+  }
+  .btn-primary:hover { background: var(--bone-white); transform: translateY(-1px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--bone-white);
+    border: 1px solid var(--stage-line);
+  }
+  .btn-secondary:hover { border-color: color-mix(in oklab, var(--bone-white) 60%, transparent); }
+
+  /* -------------------- Intro -------------------- */
+  .intro-section { background-color: var(--warm-white); }
+  .intro-text {
+    max-width: 42rem;
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--graphite);
+  }
+
+  /* -------------------- Angebots-Sektionen -------------------- */
+  .offers-section { background-color: var(--warm-white); border-top: 1px solid var(--ch-line); }
+  .offers-section.alt { background-color: color-mix(in oklab, var(--warm-cream) 55%, transparent); }
+
+  .offers-heading { display: flex; flex-direction: column; gap: 0.6rem; max-width: 46rem; }
+  .offers-heading h2 {
+    font-size: clamp(1.9rem, 3.4vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.018em;
+  }
+  .offers-heading p { font-size: 1rem; line-height: 1.7; color: var(--graphite); }
+
+  .offer-list { margin-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--ch-line); }
+
+  .offer-row {
+    display: grid;
+    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 1.5rem;
+    padding-block: clamp(1.75rem, 3vw, 2.5rem);
+    border-bottom: 1px solid var(--ch-line);
+  }
+
+  .offer-number {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--bronze);
+    padding-top: 0.2rem;
+  }
+
+  .offer-body { min-width: 0; max-width: 40rem; }
+
+  .offer-title {
+    font-size: clamp(1.1rem, 1.9vw, 1.4rem);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  .offer-pitch {
+    margin-top: 0.6rem;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--graphite);
+  }
+
+  .offer-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+    text-align: right;
+  }
+
+  .offer-price {
+    font-size: 1.05rem;
+    color: var(--foreground);
+    white-space: nowrap;
+  }
+  .offer-price small { display: block; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--graphite); margin-top: 0.15rem; }
+
+  .offer-cta {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding-inline: 1.1rem;
+    border: 1px solid var(--bronze);
+    border-radius: 0.5rem;
+    background: var(--bronze);
+    color: var(--ink);
+    font-size: 0.8125rem;
+    white-space: nowrap;
+    transition: background-color 250ms ease, transform 250ms ease;
+  }
+  .offer-cta:hover { background: color-mix(in oklab, var(--bronze) 84%, var(--warm-cream)); transform: translateX(2px); }
+
+  .offer-row.is-bundle {
+    background-color: color-mix(in oklab, var(--warm-cream) 65%, transparent);
+    margin-inline: -1.25rem;
+    padding-inline: 1.25rem;
+    border-radius: 1rem;
+    border-bottom: 1px solid var(--ch-line);
+  }
+
+  .offer-cta.is-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+  }
+  .offer-cta.is-outline:hover { background: color-mix(in oklab, var(--primary) 10%, transparent); }
+
+  .offer-price.is-free { color: var(--primary); }
+
+  /* -------------------- CTA / persönlich -------------------- */
+  .cta-section { background-color: var(--warm-cream); border-top: 1px solid var(--ch-line); }
+  .cta-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+  .cta-title { font-size: clamp(1.6rem, 2.8vw, 2.4rem); line-height: 1.15; letter-spacing: -0.015em; }
+  .cta-text { margin-top: 1rem; font-size: 1rem; line-height: 1.7; color: var(--graphite); max-width: 34rem; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; justify-self: start; }
+
+  @media (max-width: 767px) {
+    .offer-row { grid-template-columns: 2.5rem minmax(0, 1fr); }
+    .offer-meta { grid-column: 1 / -1; align-items: flex-start; flex-direction: row; justify-content: space-between; margin-top: 1rem; text-align: left; }
+    .cta-grid { grid-template-columns: 1fr; }
+    .cta-actions { margin-top: 1.75rem; }
+  }
+
+  /* -------------------- Footer -------------------- */
+  .site-footer {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    background-color: var(--deep-petrol);
+    background-image:
+      radial-gradient(120% 70% at 12% 0%, color-mix(in oklab, var(--forest-petrol) 70%, transparent), transparent 70%),
+      radial-gradient(90% 60% at 88% 100%, color-mix(in oklab, var(--cognac) 30%, transparent), transparent 72%);
+    color: var(--bone-white);
+    padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+
+  .footer-label { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: color-mix(in oklab, var(--bone-white) 62%, transparent); font-family: var(--font-mono); }
+
+  .footer-mail {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    color: var(--bone-white);
+    border-bottom: 1px solid color-mix(in oklab, var(--bone-white) 40%, transparent);
+    overflow-wrap: anywhere;
+  }
+
+  .footer-note { margin-top: 0.75rem; font-size: 0.875rem; color: color-mix(in oklab, var(--bone-white) 70%, transparent); }
+
+  .footer-nav { margin-top: 0.5rem; display: flex; flex-direction: column; align-items: flex-start; }
+  .footer-nav a { display: inline-flex; min-height: 2.75rem; align-items: center; font-size: 1rem; color: color-mix(in oklab, var(--bone-white) 82%, transparent); transition: color 250ms ease; }
+  .footer-nav a:hover { color: var(--bone-white); }
+
+  .footer-wordmark {
+    margin-top: clamp(3rem, 8vw, 6rem);
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(2.2rem, 12vw, 7rem);
+    line-height: 0.95;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: color-mix(in oklab, var(--bone-white) 94%, transparent);
+  }
+  .footer-wordmark span { white-space: nowrap; }
+  @media (min-width: 1024px) { .footer-wordmark { flex-direction: row; gap: 0.3em; } }
+
+  .footer-base {
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding-top: 1.25rem;
+    border-top: 1px solid color-mix(in oklab, var(--bone-white) 20%, transparent);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: color-mix(in oklab, var(--bone-white) 62%, transparent);
+  }
+
+  @media (max-width: 767px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+
+
+  /* -------------------- Modul-Detailseiten (ergänzend) -------------------- */
+  .back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, var(--bone-white) 78%, transparent);
+    text-decoration: none;
+    margin-bottom: 1.75rem;
+  }
+  .back-link:hover { color: var(--bone-white); }
+
+  .module-facts {
+    margin-top: 2.25rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+    max-width: 40rem;
+    border-top: 1px solid var(--stage-line);
+    padding-top: 1.5rem;
+  }
+  .module-fact-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, var(--sage) 85%, white);
+  }
+  .module-fact-value { margin-top: 0.35rem; font-size: 0.95rem; line-height: 1.4; }
+
+  .module-body { max-width: 42rem; }
+  .module-body p { font-size: 1.0625rem; line-height: 1.75; color: var(--graphite); }
+  .module-body p + p { margin-top: 1.1rem; }
+
+  .feature-list, .outcome-list {
+    margin-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    max-width: 42rem;
+  }
+  .feature-list li, .outcome-list li {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--foreground);
+  }
+  .feature-list li::before {
+    content: "\2192";
+    color: var(--bronze);
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+  .outcome-list li::before {
+    content: "\2713";
+    color: var(--primary);
+    flex-shrink: 0;
+    font-weight: 500;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--graphite);
+    margin-bottom: 0.75rem;
+  }
+
+  .module-cta-box {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    max-width: 42rem;
+    border: 1px solid var(--ch-line);
+    border-radius: var(--radius);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background-color: var(--warm-cream);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+  .module-cta-price { font-family: var(--font-mono); font-size: 1.35rem; color: var(--ink); }
+  .module-cta-price small { display: block; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--graphite); margin-top: 0.2rem; }
+  .module-cta-note { margin-top: 1rem; font-size: 0.85rem; line-height: 1.6; color: var(--graphite); max-width: 42rem; }
+
+  .closing-line { margin-top: 2.5rem; font-size: 1rem; font-style: italic; color: var(--graphite); max-width: 42rem; }
+
+</style>
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header class="site-header">
+  <div class="editorial-shell header-row">
+    <a href="https://www.oksanahuber.com/" class="wordmark">Oksana Huber</a>
+    <nav aria-label="Hauptnavigation" class="desktop-nav-list">
+      <a class="desktop-nav-link" href="https://www.oksanahuber.com/#kompetenzen">Kompetenzen</a>
+      <a class="desktop-nav-link" href="https://www.oksanahuber.com/#projekte">Projekte</a>
+      <a class="desktop-nav-link" href="/">Angebote</a>
+      <a class="desktop-nav-link" href="https://www.oksanahuber.com/#ueber-mich">Über mich</a>
+      <a class="desktop-nav-link" href="https://www.oksanahuber.com/#kontakt">Kontakt</a>
+    </nav>
+    <a class="header-cta" href="https://www.oksanahuber.com/#kontakt">Gespräch anfragen</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="editorial-shell">
+      <a class="back-link" href="/#module">&larr; Zurück zu allen Angeboten</a>
+      <span class="eyebrow hero-eyebrow">Data & Business Intelligence</span>
+      <h1 class="hero-title"><span>Power BI für Entscheider</span></h1>
+      <p class="hero-sub">Daten verstehen, Entscheidungen treffen.</p>
+
+      <div class="module-facts">
+        <div>
+          <p class="module-fact-label">Preis</p>
+          <p class="module-fact-value">Kostenlos</p>
+        </div>
+        <div>
+          <p class="module-fact-label">Dauer</p>
+          <p class="module-fact-value">ca. 4 Wochen Selbststudium</p>
+        </div>
+        <div>
+          <p class="module-fact-label">Für wen</p>
+          <p class="module-fact-value">Analytische Entscheider, die Power BI als Entscheidungswerkzeug begreifen wollen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro-section section-y">
+    <div class="editorial-shell">
+      <div class="module-body">
+        <p>Technik als Führungsinstrument verstehen: Das ist meine öffentlich dokumentierte Lernreise zur PL-300-Zertifizierung — für alle, die Power BI nicht als reines IT-Tool, sondern als Grundlage für bessere Entscheidungen begreifen wollen.</p>
+        <p>Power BI ist nicht Technik. Power BI ist Entscheidungsgrundlage, Struktur, Klarheit, Führungstool.</p>
+      </div>
+
+      <p class="section-label" style="margin-top: 3rem;">Was dich erwartet</p>
+      <ul class="feature-list">
+        <li>Was Power BI ist – und was das mit Entscheidungen zu tun hat</li>
+        <li>Power BI als Führungstool: Entscheidungen treffen mit Daten</li>
+        <li>Meine PL-300-Lernreise dokumentiert – Schritt für Schritt, mit echten Rückschlägen</li>
+        <li>Datenbasierte Entscheidungen statt Bauchgefühl</li>
+      </ul>
+
+      <p class="section-label" style="margin-top: 2.75rem;">Am Ende hast du</p>
+      <ul class="outcome-list">
+        <li>Verständnis, wofür Power BI im Entscheidungsalltag wirklich gut ist</li>
+        <li>Einblick in eine reale Zertifizierungs-Lernreise — keine Hochglanz-Story</li>
+        <li>Impulse, wie du Datenkompetenz für deine eigene Rolle nutzt</li>
+      </ul>
+
+      <p class="closing-line">Kein Verkaufskurs. Keine Motivationsfloskeln. Nur eine echte Lernreise – öffentlich dokumentiert.</p>
+
+      <div class="module-cta-box">
+        <div>
+          <span class="module-cta-price">Kostenlos</span>
+        </div>
+        <a class="offer-cta" href="mailto:kontakt@oksanahuber.com?subject=Interesse%3A%20Power%20BI%20f%C3%BCr%20Entscheider&body=Hallo%20Oksana%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20%E2%80%9EPower%20BI%20f%C3%BCr%20Entscheider%E2%80%9C%20%28kostenlos%29.%0A%0AMein%20Name%3A%0AMeine%20E-Mail-Adresse%20%28falls%20abweichend%29%3A%0AKurze%20Nachricht%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe">Kostenlos anfragen ↗</a>
+      </div>
+      <p class="module-cta-note">Der Kurs ist kostenlos. Schreib mir kurz, dann bekommst du den Zugang zu den Lektionen.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="editorial-shell" style="position: relative; z-index: 1;">
+    <div class="footer-grid">
+      <div>
+        <p class="footer-label">Kontakt</p>
+        <a href="mailto:kontakt@oksanahuber.com" class="footer-mail">kontakt@oksanahuber.com</a>
+        <p class="footer-note">Öffnet Ihr E-Mail-Programm.</p>
+      </div>
+
+      <nav aria-label="Footer-Navigation">
+        <p class="footer-label">Navigation</p>
+        <ul class="footer-nav">
+          <li><a href="https://www.oksanahuber.com/#kompetenzen">Kompetenzen</a></li>
+          <li><a href="https://www.oksanahuber.com/#projekte">Projekte</a></li>
+          <li><a href="/#module">Angebote</a></li>
+          <li><a href="https://www.oksanahuber.com/#kontakt">Kontakt</a></li>
+          <li><a href="#top">Nach oben</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <p class="footer-wordmark" aria-hidden="true">
+      <span>OKSANA</span>
+      <span>HUBER</span>
+    </p>
+
+    <div class="footer-base">
+      <p>&copy; <span id="year"></span> Oksana Huber</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
