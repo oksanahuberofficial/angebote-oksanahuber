@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Angebote & Kurse | Oksana Huber</title>
-<meta name="description" content="Programme für deinen nächsten Schritt: Bewerbungsprozess mit System und Data & Business Intelligence – von Oksana Huber." />
+<meta name="description" content="Angebote von Oksana Huber: Bewerbungsprozess mit System, Business Coaching, KI-Management & Automatisierung und Power BI." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <style>
   /* ---------------------------------------------------------------
      Design system – Oksana Huber (übernommen 1:1 aus der Hauptseite,
@@ -201,7 +201,93 @@
 
   .hero > .editorial-shell { position: relative; z-index: 1; }
 
-  /* -------------------- Schwebende Farbkugeln (wie im Hero der Hauptseite) -------------------- */ .hero-orbs { position: absolute; inset: 0; z-index: 0; pointer-events: none; } .hero-orb { position: absolute; border-radius: 50%; will-change: transform; filter: blur(38px) saturate(1.35); } .hero-orb-cognac { top: -10%; left: -4%; width: min(48vw, 580px); aspect-ratio: 1; background: radial-gradient(circle at 38% 36%, color-mix(in oklab, var(--cognac) 96%, white) 0%, color-mix(in oklab, var(--cognac) 78%, transparent) 58%, transparent 100%); opacity: 0.95; animation: orb-path-cognac 14s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite; } .hero-orb-moss { top: -20%; right: -4%; width: min(54vw, 660px); aspect-ratio: 1; background: radial-gradient(circle at 56% 44%, color-mix(in oklab, var(--sage) 30%, transparent) 0%, transparent 35%), radial-gradient(circle at 56% 44%, color-mix(in oklab, var(--forest-petrol) 94%, white) 0%, color-mix(in oklab, var(--forest-petrol) 78%, transparent) 60%, transparent 100%); opacity: 0.92; animation: orb-path-petrol 17s cubic-bezier(0.37, 0.12, 0.63, 0.88) infinite; } .hero-orb-sage { bottom: -24%; right: 10%; width: min(36vw, 420px); aspect-ratio: 1; background: radial-gradient(circle at 46% 50%, color-mix(in oklab, var(--sage) 84%, transparent) 0%, color-mix(in oklab, var(--warm-cream) 58%, transparent) 60%, transparent 100%); opacity: 0.78; animation: orb-path-sage 12s ease-in-out infinite; } .hero-orb-cream { bottom: -10%; left: 14%; width: min(26vw, 320px); aspect-ratio: 1; background: radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--warm-cream) 68%, transparent) 0%, color-mix(in oklab, var(--bronze) 44%, transparent) 62%, transparent 100%); opacity: 0.7; animation: orb-path-cream 10.5s cubic-bezier(0.42, 0, 0.58, 1) infinite; } @keyframes orb-path-cognac { 0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); } 33%  { transform: translate3d(18vw, 12vh, 0) scale(1.12) rotate(4deg); } 66%  { transform: translate3d(30vw, 22vh, 0) scale(0.9) rotate(7deg); } 100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); } } @keyframes orb-path-petrol { 0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); } 40%  { transform: translate3d(-22vw, 14vh, 0) scale(1.08) rotate(-5deg); } 70%  { transform: translate3d(-34vw, 26vh, 0) scale(1.16) rotate(-9deg); } 100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); } } @keyframes orb-path-sage { 0%, 100% { transform: translate3d(0, 0, 0) scale(1); } 50%      { transform: translate3d(-20vw, -14vh, 0) scale(1.1); } } @keyframes orb-path-cream { 0%, 100% { transform: translate3d(0, 0, 0) scale(1); } 45%      { transform: translate3d(17vw, -14vh, 0) scale(1.1); } } @media (max-width: 767px) { .hero-orb-cognac { width: 90vw; left: -18%; top: -4%; } .hero-orb-moss { width: 96vw; right: -26%; top: -10%; } .hero-orb-sage { width: 66vw; right: -8%; } .hero-orb-cream { width: 50vw; left: 4%; } } .hero-eyebrow { color: color-mix(in oklab, var(--sage) 92%, white); }
+  /* -------------------- Schwebende Farbkugeln (wie im Hero der Hauptseite) -------------------- */
+  .hero-orbs {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    will-change: transform;
+    filter: blur(38px) saturate(1.35);
+  }
+
+  .hero-orb-cognac {
+    top: -10%;
+    left: -4%;
+    width: min(48vw, 580px);
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 38% 36%, color-mix(in oklab, var(--cognac) 96%, white) 0%, color-mix(in oklab, var(--cognac) 78%, transparent) 58%, transparent 100%);
+    opacity: 0.95;
+    animation: orb-path-cognac 14s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  }
+
+  .hero-orb-moss {
+    top: -20%;
+    right: -4%;
+    width: min(54vw, 660px);
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 56% 44%, color-mix(in oklab, var(--sage) 30%, transparent) 0%, transparent 35%), radial-gradient(circle at 56% 44%, color-mix(in oklab, var(--forest-petrol) 94%, white) 0%, color-mix(in oklab, var(--forest-petrol) 78%, transparent) 60%, transparent 100%);
+    opacity: 0.92;
+    animation: orb-path-petrol 17s cubic-bezier(0.37, 0.12, 0.63, 0.88) infinite;
+  }
+
+  .hero-orb-sage {
+    bottom: -24%;
+    right: 10%;
+    width: min(36vw, 420px);
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 46% 50%, color-mix(in oklab, var(--sage) 84%, transparent) 0%, color-mix(in oklab, var(--warm-cream) 58%, transparent) 60%, transparent 100%);
+    opacity: 0.78;
+    animation: orb-path-sage 12s ease-in-out infinite;
+  }
+
+  .hero-orb-cream {
+    bottom: -10%;
+    left: 14%;
+    width: min(26vw, 320px);
+    aspect-ratio: 1;
+    background: radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--warm-cream) 68%, transparent) 0%, color-mix(in oklab, var(--bronze) 44%, transparent) 62%, transparent 100%);
+    opacity: 0.7;
+    animation: orb-path-cream 10.5s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+  }
+
+  @keyframes orb-path-cognac {
+    0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+    33%  { transform: translate3d(18vw, 12vh, 0) scale(1.12) rotate(4deg); }
+    66%  { transform: translate3d(30vw, 22vh, 0) scale(0.9) rotate(7deg); }
+    100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  }
+
+  @keyframes orb-path-petrol {
+    0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+    40%  { transform: translate3d(-22vw, 14vh, 0) scale(1.08) rotate(-5deg); }
+    70%  { transform: translate3d(-34vw, 26vh, 0) scale(1.16) rotate(-9deg); }
+    100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  }
+
+  @keyframes orb-path-sage {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50%      { transform: translate3d(-20vw, -14vh, 0) scale(1.1); }
+  }
+
+  @keyframes orb-path-cream {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    45%      { transform: translate3d(17vw, -14vh, 0) scale(1.1); }
+  }
+
+  @media (max-width: 767px) {
+    .hero-orb-cognac { width: 90vw; left: -18%; top: -4%; }
+    .hero-orb-moss { width: 96vw; right: -26%; top: -10%; }
+    .hero-orb-sage { width: 66vw; right: -8%; }
+    .hero-orb-cream { width: 50vw; left: 4%; }
+  }
+
+  .hero-eyebrow { color: color-mix(in oklab, var(--sage) 92%, white); }
 
   .hero-title {
     margin-top: 1.25rem;
@@ -253,6 +339,9 @@
 
   /* -------------------- Intro -------------------- */
   .intro-section { background-color: var(--warm-white); }
+  .jump { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .jump a { display: inline-flex; min-height: 2.75rem; align-items: center; padding-inline: 1rem; border: 1px solid var(--ch-line); border-radius: 0.75rem; font-family: var(--font-mono); font-size: 0.8125rem; color: var(--primary); transition: border-color 250ms ease; }
+  .jump a:hover { border-color: var(--bronze); }
   .intro-text {
     max-width: 42rem;
     font-size: 1.0625rem;
@@ -442,27 +531,39 @@
   }
 </style>
 </head>
-<body id="top">
+<body>
+
+
+
+
+
+
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <header class="site-header">
   <div class="editorial-shell header-row">
-    <a href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/" class="wordmark">Oksana Huber</a>
+    <a href="https://oksanahuber.com/" class="wordmark">Oksana Huber</a>
     <nav aria-label="Hauptnavigation" class="desktop-nav-list">
-      <a class="desktop-nav-link" href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#kompetenzen">Kompetenzen</a>
-      <a class="desktop-nav-link" href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#projekte">Projekte</a>
+      <a class="desktop-nav-link" href="https://oksanahuber.com/#kompetenzen">Kompetenzen</a>
+      <a class="desktop-nav-link" href="https://oksanahuber.com/#wirkung">Wirkung</a>
       <a class="desktop-nav-link is-active" href="#module" aria-current="page">Angebote</a>
-      <a class="desktop-nav-link" href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#ueber-mich">Über mich</a>
-      <a class="desktop-nav-link" href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#kontakt">Kontakt</a>
+      <a class="desktop-nav-link" href="https://oksanahuber.com/#ueber-mich">Über mich</a>
+      <a class="desktop-nav-link" href="https://oksanahuber.com/#kontakt">Kontakt</a>
     </nav>
-    <a class="header-cta" href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#kontakt">Gespräch anfragen</a>
+    <a class="header-cta" href="https://oksanahuber.com/#kontakt">Gespräch anfragen</a>
   </div>
 </header>
 
 <main id="main">
 
   <!-- HERO -->
-  <section class="hero"> <div class="hero-orbs" aria-hidden="true"> <span class="hero-orb hero-orb-cognac"></span> <span class="hero-orb hero-orb-moss"></span> <span class="hero-orb hero-orb-sage"></span> <span class="hero-orb hero-orb-cream"></span> </div>
+  <section class="hero">
+    <div class="hero-orbs" aria-hidden="true">
+      <span class="hero-orb hero-orb-cognac"></span>
+      <span class="hero-orb hero-orb-moss"></span>
+      <span class="hero-orb hero-orb-sage"></span>
+      <span class="hero-orb hero-orb-cream"></span>
+    </div>
     <div class="editorial-shell">
       <span class="eyebrow hero-eyebrow">Angebote</span>
       <h1 class="hero-title">
@@ -471,13 +572,12 @@
         <span>Schritt.</span>
       </h1>
       <p class="hero-sub">
-        Selbststudium mit klarer Struktur – für alle, die ihren Bewerbungsprozess
-        oder ihren Einstieg in Data &amp; Business Intelligence selbst in die Hand
-        nehmen wollen. Kein Motivationskurs. Keine Floskeln.
+        Selbststudium für deinen Bewerbungsprozess, 1:1-Coaching für berufliche
+        Klarheit und KI-Angebote für Unternehmen. Klare Struktur, keine Floskeln.
       </p>
       <div class="hero-actions">
         <a class="btn-primary" href="#module">Alle Module ansehen</a>
-        <a class="btn-secondary" href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#kontakt">Lieber 1:1? Klarheitsgespräch anfragen</a>
+        <a class="btn-secondary" href="#coaching">Lieber 1:1? Zum Coaching</a>
       </div>
     </div>
   </section>
@@ -486,11 +586,17 @@
   <section class="intro-section section-y">
     <div class="editorial-shell">
       <p class="intro-text">
-        Jedes Modul steht für sich und ist einzeln buchbar – oder als Vollkurs im Paket.
         Die Inhalte entstehen aus meiner eigenen Erfahrung: Ich habe jeden dieser
-        Prozesse selbst durchlaufen und zeige dir Schritt für Schritt, wie es geht –
-        mit KI, Notion und Canva als Werkzeuge.
+        Prozesse selbst durchlaufen, im eigenen Bewerbungsprozess, in meiner
+        Coaching-Ausbildung und in über 25 Jahren an der Schnittstelle von Sales,
+        Finance, Operations und IT.
       </p>
+      <nav class="jump" aria-label="Bereiche dieser Seite">
+        <a href="#module">Bewerbung mit System</a>
+        <a href="#coaching">Business Coaching</a>
+        <a href="#ki">KI &amp; Automatisierung</a>
+        <a href="#data-bi">Power BI</a>
+      </nav>
     </div>
   </section>
 
@@ -500,7 +606,7 @@
       <div class="offers-heading">
         <span class="eyebrow">Bewerbungsprozess mit System</span>
         <h2>Von der Selbstanalyse bis zum Vorstellungsgespräch.</h2>
-        <p>Fünf einzeln buchbare Module – oder gebündelt als Vollkurs.</p>
+        <p>Fünf einzeln buchbare Module – oder gebündelt als Vollkurs. „Interesse anmelden“ öffnet eine vorbereitete E-Mail an oksana.huber.official@gmail.com. Du bekommst die Infos zur Zahlung per PayPal und nach Zahlungseingang deinen Kurszugang.</p>
       </div>
 
       <div class="offer-list">
@@ -513,7 +619,7 @@
           </div>
           <div class="offer-meta">
             <span class="offer-price">47,00 €<small>Einzelmodul</small></span>
-            <a class="offer-cta" href="/modul-1-selbstanalyse/">Details →</a>
+            <a class="offer-cta" href="mailto:oksana.huber.official@gmail.com?subject=Interesse%3A%20Selbstanalyse%20%26%20Positionierung&body=Hallo%20Oksana%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20%E2%80%9ESelbstanalyse%20%26%20Positionierung%E2%80%9C%20%2847%2C00%20%E2%82%AC%29.%0ABitte%20schick%20mir%20die%20Infos%20zur%20Zahlung%20und%20zum%20Zugang.%0A%0AMein%20Name%3A%0AKurze%20Nachricht%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe">Interesse anmelden</a>
           </div>
         </div>
 
@@ -521,11 +627,11 @@
           <span class="offer-number" aria-hidden="true">02</span>
           <div class="offer-body">
             <h3 class="offer-title">CV &amp; Bewerbungsunterlagen mit KI</h3>
-            <p class="offer-pitch">ATS-optimierte, authentische Unterlagen in weniger als einem Tag – mit Claude als Co-Autor und einem ATS-Check zur Selbstkontrolle.</p>
+            <p class="offer-pitch">ATS-taugliche, authentische Unterlagen – mit KI als Co-Autor, einem Keyword-Abgleich und einem ATS-Check zur Selbstkontrolle.</p>
           </div>
           <div class="offer-meta">
             <span class="offer-price">47,00 €<small>Einzelmodul</small></span>
-            <a class="offer-cta" href="/modul-2-cv-bewerbung-ki/">Details →</a>
+            <a class="offer-cta" href="mailto:oksana.huber.official@gmail.com?subject=Interesse%3A%20CV%20%26%20Bewerbungsunterlagen%20mit%20KI&body=Hallo%20Oksana%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20%E2%80%9ECV%20%26%20Bewerbungsunterlagen%20mit%20KI%E2%80%9C%20%2847%2C00%20%E2%82%AC%29.%0ABitte%20schick%20mir%20die%20Infos%20zur%20Zahlung%20und%20zum%20Zugang.%0A%0AMein%20Name%3A%0AKurze%20Nachricht%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe">Interesse anmelden</a>
           </div>
         </div>
 
@@ -537,7 +643,7 @@
           </div>
           <div class="offer-meta">
             <span class="offer-price">97,00 €<small>Einzelmodul</small></span>
-            <a class="offer-cta" href="/modul-3-personal-brand/">Details →</a>
+            <a class="offer-cta" href="mailto:oksana.huber.official@gmail.com?subject=Interesse%3A%20Professionelles%20Profil%20%26%20Personal%20Brand&body=Hallo%20Oksana%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20%E2%80%9EProfessionelles%20Profil%20%26%20Personal%20Brand%E2%80%9C%20%2897%2C00%20%E2%82%AC%29.%0ABitte%20schick%20mir%20die%20Infos%20zur%20Zahlung%20und%20zum%20Zugang.%0A%0AMein%20Name%3A%0AKurze%20Nachricht%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe">Interesse anmelden</a>
           </div>
         </div>
 
@@ -549,7 +655,7 @@
           </div>
           <div class="offer-meta">
             <span class="offer-price">47,00 €<small>Einzelmodul</small></span>
-            <a class="offer-cta" href="/modul-4-bewerbungsprozess-tracking/">Details →</a>
+            <a class="offer-cta" href="mailto:oksana.huber.official@gmail.com?subject=Interesse%3A%20Bewerbungsprozess%20organisieren%20%26%20tracken&body=Hallo%20Oksana%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20%E2%80%9EBewerbungsprozess%20organisieren%20%26%20tracken%E2%80%9C%20%2847%2C00%20%E2%82%AC%29.%0ABitte%20schick%20mir%20die%20Infos%20zur%20Zahlung%20und%20zum%20Zugang.%0A%0AMein%20Name%3A%0AKurze%20Nachricht%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe">Interesse anmelden</a>
           </div>
         </div>
 
@@ -557,11 +663,11 @@
           <span class="offer-number" aria-hidden="true">05</span>
           <div class="offer-body">
             <h3 class="offer-title">Interview-Vorbereitung &amp; Feedback mit KI</h3>
-            <p class="offer-pitch">Souveräne Vorbereitung mit Claude als virtuellem Interview-Coach – plus eine erprobte Methode zur Nachbereitung.</p>
+            <p class="offer-pitch">Souveräne Vorbereitung mit KI als Interview-Coach – plus eine erprobte Methode zur Nachbereitung.</p>
           </div>
           <div class="offer-meta">
             <span class="offer-price">97,00 €<small>Einzelmodul</small></span>
-            <a class="offer-cta" href="/modul-5-interview-vorbereitung/">Details →</a>
+            <a class="offer-cta" href="mailto:oksana.huber.official@gmail.com?subject=Interesse%3A%20Interview-Vorbereitung%20%26%20Feedback%20mit%20KI&body=Hallo%20Oksana%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20%E2%80%9EInterview-Vorbereitung%20%26%20Feedback%20mit%20KI%E2%80%9C%20%2897%2C00%20%E2%82%AC%29.%0ABitte%20schick%20mir%20die%20Infos%20zur%20Zahlung%20und%20zum%20Zugang.%0A%0AMein%20Name%3A%0AKurze%20Nachricht%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe">Interesse anmelden</a>
           </div>
         </div>
 
@@ -569,14 +675,141 @@
           <span class="offer-number" aria-hidden="true">＋</span>
           <div class="offer-body">
             <h3 class="offer-title">Vollkurs – alle 5 Module</h3>
-            <p class="offer-pitch">Der gesamte Bewerbungsprozess in einem Paket. Als Preisoption direkt bei jedem einzelnen Modul wählbar.</p>
+            <p class="offer-pitch">Der gesamte Bewerbungsprozess in einem Paket: alle fünf Module zum Paketpreis.</p>
           </div>
           <div class="offer-meta">
             <span class="offer-price">197,00 €<small>statt 335,00 € einzeln</small></span>
-            <a class="offer-cta is-outline" href="/vollkurs-bundle/">Vollkurs ansehen →</a>
+            <a class="offer-cta is-outline" href="mailto:oksana.huber.official@gmail.com?subject=Interesse%3A%20Vollkurs%20%E2%80%93%20alle%205%20Module&body=Hallo%20Oksana%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20%E2%80%9EVollkurs%20%E2%80%93%20alle%205%20Module%E2%80%9C%20%28197%2C00%20%E2%82%AC%29.%0ABitte%20schick%20mir%20die%20Infos%20zur%20Zahlung%20und%20zum%20Zugang.%0A%0AMein%20Name%3A%0AKurze%20Nachricht%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe">Interesse anmelden</a>
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- BUSINESS COACHING -->
+  <section class="offers-section alt section-y" id="coaching">
+    <div class="editorial-shell">
+      <div class="offers-heading">
+        <span class="eyebrow">Business Coaching · 1:1</span>
+        <h2>Klarer sehen. Bewusster entscheiden.</h2>
+        <p>Persönliche Begleitung statt Selbststudium. Strukturiert, ohne Motivationsfloskeln, mit Methoden aus NLP, Kommunikationspsychologie und Persönlichkeitsmodellen. Coaching ersetzt keine Therapie.</p>
+      </div>
+
+      <div class="offer-list">
+        <div class="offer-row">
+          <span class="offer-number" aria-hidden="true">01</span>
+          <div class="offer-body">
+            <h3 class="offer-title">Klarheits-Sprint</h3>
+            <p class="offer-pitch">Zwei aufeinander aufbauende Sitzungen: zuerst die Standortbestimmung mit deinen Werten und deinem bisherigen Weg, danach ein Ziel mit klaren, terminierten Schritten. Für alle, die wissen wollen, wohin es beruflich gehen soll.</p>
+          </div>
+          <div class="offer-meta">
+            <span class="offer-price">Preis auf Anfrage<small>2 × 90 Minuten</small></span>
+            <a class="offer-cta is-outline" href="https://oksanahuber.com/#kontakt">Anfragen</a>
+          </div>
+        </div>
+        <div class="offer-row">
+          <span class="offer-number" aria-hidden="true">02</span>
+          <div class="offer-body">
+            <h3 class="offer-title">Entscheidungsblockaden lösen</h3>
+            <p class="offer-pitch">Für Entscheidungen, bei denen du dich im Kreis drehst. Wir suchen die gute Absicht hinter dem Zögern und einen Weg, der sie erfüllt, ohne dich weiter zu blockieren.</p>
+          </div>
+          <div class="offer-meta">
+            <span class="offer-price">Preis auf Anfrage<small>1 × 90 Minuten, optional 2. Sitzung</small></span>
+            <a class="offer-cta is-outline" href="https://oksanahuber.com/#kontakt">Anfragen</a>
+          </div>
+        </div>
+        <div class="offer-row">
+          <span class="offer-number" aria-hidden="true">03</span>
+          <div class="offer-body">
+            <h3 class="offer-title">Ziele verankern mit der Timeline</h3>
+            <p class="offer-pitch">Dein Ziel liegt auf einer Zeitlinie im Raum. Die Zwischenschritte erarbeitest du im Gehen, nicht nur im Kopf. Für alle, die wissen, was sie wollen, und am Anfangen hängen.</p>
+          </div>
+          <div class="offer-meta">
+            <span class="offer-price">Preis auf Anfrage<small>60 oder 90 Minuten</small></span>
+            <a class="offer-cta is-outline" href="https://oksanahuber.com/#kontakt">Anfragen</a>
+          </div>
+        </div>
+        <div class="offer-row">
+          <span class="offer-number" aria-hidden="true">04</span>
+          <div class="offer-body">
+            <h3 class="offer-title">Souverän auftreten und überzeugend kommunizieren</h3>
+            <p class="offer-pitch">Ich-Botschaften, Körpersprache und der Umgang mit Einwänden, abgestimmt auf dein nächstes wichtiges Gespräch, deine Verhandlung oder deine Präsentation.</p>
+          </div>
+          <div class="offer-meta">
+            <span class="offer-price">Preis auf Anfrage<small>3 × 60 Minuten</small></span>
+            <a class="offer-cta is-outline" href="https://oksanahuber.com/#kontakt">Anfragen</a>
+          </div>
+        </div>
+        <div class="offer-row">
+          <span class="offer-number" aria-hidden="true">05</span>
+          <div class="offer-body">
+            <h3 class="offer-title">Struktur und Selbstführung im Alltag</h3>
+            <p class="offer-pitch">Zeitmanagement, das bei deinen Zielen beginnt. Schwerpunkt nach Wahl: Prioritäten, Planung, Zeitdiebe oder Nein-Sagen.</p>
+          </div>
+          <div class="offer-meta">
+            <span class="offer-price">Preis auf Anfrage<small>90 Minuten oder 3er-Paket</small></span>
+            <a class="offer-cta is-outline" href="https://oksanahuber.com/#kontakt">Anfragen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KI-MANAGEMENT & AUTOMATISIERUNG -->
+  <section class="offers-section section-y" id="ki">
+    <div class="editorial-shell">
+      <div class="offers-heading">
+        <span class="eyebrow">KI-Management &amp; Automatisierung</span>
+        <h2>KI sinnvoll einsetzen, Schritt für Schritt.</h2>
+        <p>Für Unternehmen und Selbständige. Grundlage sind über 25 Jahre Praxis in Prozessen, Daten und Systemen sowie meine KI-Manager-Weiterbildung bei Agile Heroes (468 UE).</p>
+      </div>
+
+      <div class="offer-list">
+        <div class="offer-row">
+          <span class="offer-number" aria-hidden="true">01</span>
+          <div class="offer-body">
+            <h3 class="offer-title">KI-Use-Cases finden und priorisieren</h3>
+            <p class="offer-pitch">Wir sammeln Ideen aus Ihren Prozessen und bewerten sie nach Nutzen, Aufwand, Datenlage und Risiko. Ergebnis: die ersten zwei bis drei Use Cases, mit denen sich der Einstieg lohnt.</p>
+          </div>
+          <div class="offer-meta">
+            <span class="offer-price">Preis auf Anfrage<small>Workshop, Umfang nach Absprache</small></span>
+            <a class="offer-cta is-outline" href="https://oksanahuber.com/#kontakt">Anfragen</a>
+          </div>
+        </div>
+        <div class="offer-row">
+          <span class="offer-number" aria-hidden="true">02</span>
+          <div class="offer-body">
+            <h3 class="offer-title">Erste Automatisierung mit n8n</h3>
+            <p class="offer-pitch">Ein wiederkehrender Ablauf wird zum Workflow: Prozess aufnehmen, Entscheidungspunkte festlegen, in n8n bauen, testen und dokumentiert übergeben. Freigaben bleiben beim Menschen.</p>
+          </div>
+          <div class="offer-meta">
+            <span class="offer-price">Preis auf Anfrage<small>Projekt</small></span>
+            <a class="offer-cta is-outline" href="https://oksanahuber.com/#kontakt">Anfragen</a>
+          </div>
+        </div>
+        <div class="offer-row">
+          <span class="offer-number" aria-hidden="true">03</span>
+          <div class="offer-body">
+            <h3 class="offer-title">KI-Einführung: Menschen mitnehmen</h3>
+            <p class="offer-pitch">Begleitung für Führungskräfte und Teams, die KI einführen: Erwartungen und Sorgen ernst nehmen, Rollen klären, erste Erfolge sichtbar machen. Change und Coaching aus einer Hand.</p>
+          </div>
+          <div class="offer-meta">
+            <span class="offer-price">Preis auf Anfrage<small>Workshop und Coaching</small></span>
+            <a class="offer-cta is-outline" href="https://oksanahuber.com/#kontakt">Anfragen</a>
+          </div>
+        </div>
+        <div class="offer-row">
+          <span class="offer-number" aria-hidden="true">04</span>
+          <div class="offer-body">
+            <h3 class="offer-title">KI-Datenschutz-Schnellcheck für KMU</h3>
+            <p class="offer-pitch">Eine erste Orientierung zu DSGVO und EU AI Act: Welche KI-Tools nutzen Sie, welche Daten fließen, in welche Risikoklasse fällt Ihr Anwendungsfall? Sie erhalten eine Übersicht mit offenen Punkten. Der Check ersetzt keine Rechtsberatung.</p>
+          </div>
+          <div class="offer-meta">
+            <span class="offer-price">Preis auf Anfrage<small>Check, Umfang nach Absprache</small></span>
+            <a class="offer-cta is-outline" href="https://oksanahuber.com/#kontakt">Anfragen</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -599,7 +832,7 @@
           </div>
           <div class="offer-meta">
             <span class="offer-price is-free">Kostenlos</span>
-            <a class="offer-cta" href="/power-bi-fuer-entscheider/">Details →</a>
+            <a class="offer-cta" href="mailto:oksana.huber.official@gmail.com?subject=Interesse%3A%20Power%20BI%20f%C3%BCr%20Entscheider&body=Hallo%20Oksana%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20%E2%80%9EPower%20BI%20f%C3%BCr%20Entscheider%E2%80%9C%20%28kostenlos%29.%0ABitte%20schick%20mir%20den%20Zugang.%0A%0AMein%20Name%3A%0AKurze%20Nachricht%20%28optional%29%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe">Interesse anmelden</a>
           </div>
         </div>
       </div>
@@ -612,12 +845,12 @@
       <div>
         <h2 class="cta-title">Lieber persönliche Begleitung statt Selbststudium?</h2>
         <p class="cta-text">
-          Im Klarheitsgespräch klären wir gemeinsam, wo du stehst und was als
-          Nächstes wirklich weiterhilft – ganz ohne Verkaufsdruck.
+          Im Klarheitsgespräch klären wir gemeinsam, wo du stehst und was dir als
+          Nächstes weiterhilft. Ohne Verkaufsdruck.
         </p>
       </div>
       <div class="cta-actions">
-        <a class="btn-primary" style="background: var(--primary); color: var(--warm-white); border-color: var(--primary);" href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#kontakt">Klarheitsgespräch anfragen</a>
+        <a class="btn-primary" style="background: var(--primary); color: var(--warm-white); border-color: var(--primary);" href="https://oksanahuber.com/#kontakt">Klarheitsgespräch anfragen</a>
       </div>
     </div>
   </section>
@@ -629,18 +862,20 @@
     <div class="footer-grid">
       <div>
         <p class="footer-label">Kontakt</p>
-        <a href="mailto:oksana.huber.official@gmail.com" class="footer-mail">oksana.huber.official@gmail.com</a>
-        <p class="footer-note">Öffnet Ihr E-Mail-Programm.</p>
+        <span class="footer-mail" style="user-select:all">oksana.huber.official@gmail.com</span>
+        <p class="footer-note">Schreib mir direkt an diese Adresse.</p>
       </div>
 
       <nav aria-label="Footer-Navigation">
         <p class="footer-label">Navigation</p>
         <ul class="footer-nav">
-          <li><a href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#kompetenzen">Kompetenzen</a></li>
-          <li><a href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#projekte">Projekte</a></li>
-          <li><a href="#module">Angebote</a></li>
-          <li><a href="https://id-preview--8205fa87-581d-4ae9-8ba1-d28d41a2ed6b.lovable.app/#kontakt">Kontakt</a></li>
-          <li><a href="#top">Nach oben</a></li>
+          <li><a href="https://oksanahuber.com/#kompetenzen">Kompetenzen</a></li>
+          <li><a href="https://oksanahuber.com/#wirkung">Wirkung</a></li>
+          <li><a href="#module">Bewerbung mit System</a></li>
+          <li><a href="#coaching">Business Coaching</a></li>
+          <li><a href="#ki">KI &amp; Automatisierung</a></li>
+          <li><a href="https://oksanahuber.com/#kontakt">Kontakt</a></li>
+          <li><a href="#main">Nach oben</a></li>
         </ul>
       </nav>
     </div>
@@ -652,7 +887,8 @@
 
     <div class="footer-base">
       <p>© <span id="year"></span> Oksana Huber</p>
-      </div>
+      <p><a href="https://oksanahuber.com/impressum">Impressum</a> · <a href="https://oksanahuber.com/datenschutz">Datenschutz</a></p>
+    </div>
   </div>
 </footer>
 
@@ -660,5 +896,4 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
-</body>
-</html>
+</body></html>
